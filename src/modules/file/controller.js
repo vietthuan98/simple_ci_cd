@@ -39,11 +39,11 @@ const uploadFileService = (req, filePath) => {
 // Take in the request & filepath, stream the file to the filePath
 export const uploadFile = async (req, res) => {
   try {
-    const filePath = path.join(__dirname, `/src/modules/file/store/image.png`);
+    const filePath = path.join(__dirname, `/src/public/images/image.png`);
     await uploadFileService(req, filePath);
     res.send({ status: "success", filePath });
   } catch (error) {
     console.log('err:', error);
-    res.send({ status: "error", error });
+    res.status(500).send({ status: "error", error });
   }
 };

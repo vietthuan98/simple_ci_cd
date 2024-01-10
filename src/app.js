@@ -4,8 +4,10 @@ import router from './router.js';
 
 const app = express();
 
+app.use(express.static('src/public'))
+
 app.get("/", (_, res) => {
-  res.status(200).send(`Server up and running`);
+  res.status(200).send('/index.html');
 });
 
 app.get("/ping", (_, res) => {
